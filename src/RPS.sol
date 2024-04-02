@@ -21,23 +21,23 @@ enum Move {
     SCISSORS
 }
 
+struct Room {
+    address player1;
+    address player2;
+    uint120 start;
+    uint120 end;
+    Move player1Move;
+    Move player2Move;
+    bytes32 hashedPlayer1Move;
+    bytes32 hashedPlayer2Move;
+}
+
+struct Player {
+    uint128 wins;
+    uint128 losses;
+}
+
 contract RPS {
-    struct Room {
-        address player1;
-        address player2;
-        uint120 start;
-        uint120 end;
-        Move player1Move;
-        Move player2Move;
-        bytes32 hashedPlayer1Move;
-        bytes32 hashedPlayer2Move;
-    }
-
-    struct Player {
-        uint128 wins;
-        uint128 losses;
-    }
-
     uint256 public constant PLAYER2_PLAY_DEADLINE = 1 minutes;
     uint256 public constant PLAYERS_REVEAL_DEADLINE = 1 minutes;
 
